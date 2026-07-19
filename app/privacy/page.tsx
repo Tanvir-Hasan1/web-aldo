@@ -53,7 +53,8 @@ export default function PrivacyPolicy() {
   useEffect(() => {
     async function fetchPolicy() {
       try {
-        const res = await fetch("https://ristoai.onrender.com/api/v1/settings/privacy-policy");
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL;
+        const res = await fetch(`${baseUrl}/api/v1/settings/privacy-policy`);
         if (res.ok) {
           const json = await res.json();
           setData(json);
@@ -69,7 +70,7 @@ export default function PrivacyPolicy() {
 
   const title = data?.title || "Privacy Policy";
   const rawContent = data?.content || STATIC_FALLBACK_CONTENT;
-  
+
   // Clean date parsing
   let updatedAtStr = "July 19, 2026";
   if (data?.updated_at) {
@@ -140,7 +141,7 @@ export default function PrivacyPolicy() {
                         </div>
                       );
                     }
-                    
+
                     // Regular paragraph
                     return <p key={i}>{para}</p>;
                   })}
