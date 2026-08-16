@@ -20,7 +20,7 @@ export default function PrivacyPolicy() {
   useEffect(() => {
     async function fetchPolicy() {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.risto-ai.com";
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://ristoai.onrender.com";
         const res = await fetch(`${baseUrl}/api/v1/settings/privacy-policy`);
         if (res.ok) {
           const json = await res.json();
