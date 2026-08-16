@@ -2,9 +2,9 @@
 
 import React, { useEffect, useState } from "react";
 import Link from "next/link";
-import styles from "./privacy.module.css";
+import styles from "./terms.module.css";
 
-interface PrivacyPolicyData {
+interface TermsData {
   key: string;
   title: string;
   content: string;
@@ -12,33 +12,33 @@ interface PrivacyPolicyData {
   updated_by: string | null;
 }
 
-export default function PrivacyPolicy() {
-  const [data, setData] = useState<PrivacyPolicyData | null>(null);
+export default function TermsAndConditions() {
+  const [data, setData] = useState<TermsData | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
-    async function fetchPolicy() {
+    async function fetchTerms() {
       try {
         const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://ristoai.onrender.com";
-        const res = await fetch(`${baseUrl}/api/v1/settings/privacy-policy`);
+        const res = await fetch(`${baseUrl}/api/v1/settings/terms-and-conditions`);
         if (res.ok) {
           const json = await res.json();
           setData(json);
         } else {
-          setError("Privacy Policy is currently unavailable. Please check back shortly.");
+          setError("Terms and Conditions are currently unavailable. Please check back shortly.");
         }
       } catch (err) {
-        console.error("Failed to load privacy policy from API", err);
-        setError("Privacy Policy is currently unavailable. Please check back shortly.");
+        console.error("Failed to load terms and conditions from API", err);
+        setError("Terms and Conditions are currently unavailable. Please check back shortly.");
       } finally {
         setLoading(false);
       }
     }
-    fetchPolicy();
+    fetchTerms();
   }, []);
 
-  const title = data?.title || "Privacy Policy";
+  const title = data?.title || "Terms and Conditions";
   const rawContent = data?.content || "";
 
   // Clean date parsing
@@ -81,7 +81,7 @@ export default function PrivacyPolicy() {
               <div style={{ textAlign: "center", padding: "4rem 0" }}>
                 <div className={styles.spinner}></div>
                 <p style={{ marginTop: "1rem", color: "var(--text-muted)" }}>
-                  Loading Privacy Policy...
+                  Loading Terms and Conditions...
                 </p>
               </div>
             ) : error || !data ? (
@@ -99,7 +99,7 @@ export default function PrivacyPolicy() {
 
                 <div className={styles.articleBody}>
                   {paragraphs.map((para, i) => {
-                    // Check if it's a numbered section header like "1. Information We Collect"
+                    // Check if it's a numbered section header like "1. Acceptance of Terms"
                     if (/^\d+\./.test(para)) {
                       const lines = para.split("\n");
                       const sectionHeader = lines[0];

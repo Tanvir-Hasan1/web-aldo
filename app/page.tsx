@@ -24,6 +24,7 @@ export default function Home() {
           <nav className={styles.navLinks}>
             <a href="#features" className={styles.navLink}>Features</a>
             <a href="#pricing" className={styles.navLink}>Pricing</a>
+            <Link href="/terms-and-conditions" className={styles.navLink}>Terms & Conditions</Link>
             <Link href="/privacy" className={styles.navLink}>Privacy Policy</Link>
             <a href="#download" className={styles.downloadBtn}>Download App</a>
           </nav>
@@ -260,6 +261,7 @@ export default function Home() {
             <a href="#features">Features</a>
             <a href="#pricing">Pricing</a>
             <Link href="/privacy">Privacy Policy</Link>
+            <Link href="/terms-and-conditions">Terms of Use</Link>
           </div>
           <div className={styles.copyright}>
             &copy; {new Date().getFullYear()} RistoAI. All rights reserved.

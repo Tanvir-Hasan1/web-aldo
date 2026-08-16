@@ -1,0 +1,140 @@
+/* Styles for Terms and Conditions Page */
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.header {
+  border-bottom: 1px solid var(--border-color);
+  background: rgba(8, 12, 20, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.navContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 5rem;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-family: var(--font-family-display);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.logoIcon {
+  width: 2.25rem;
+  height: 2.25rem;
+  background: linear-gradient(135deg, var(--accent-orange), var(--accent-yellow));
+  border-radius: 0.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #080C14;
+  font-size: 1.25rem;
+  box-shadow: 0 4px 15px rgba(250, 140, 76, 0.3);
+}
+
+.backLink {
+  color: var(--text-secondary);
+  font-weight: 600;
+  font-size: 0.95rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.backLink:hover {
+  color: var(--accent-orange);
+}
+
+.contentSection {
+  padding: 5rem 0;
+  flex-grow: 1;
+}
+
+.articleCard {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 3rem;
+}
+
+.title {
+  font-size: clamp(2rem, 4vw, 3rem);
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.lastUpdated {
+  color: var(--accent-orange);
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 3rem;
+  display: block;
+}
+
+.articleBody h2 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-top: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.articleBody p {
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.articleBody ul {
+  margin-bottom: 1.5rem;
+  padding-left: 1.5rem;
+  color: var(--text-secondary);
+  line-height: 1.7;
+}
+
+.articleBody li {
+  margin-bottom: 0.5rem;
+}
+
+.footer {
+  padding: 3rem 0 2rem 0;
+  border-top: 1px solid var(--border-color);
+  background: var(--bg-primary);
+  text-align: center;
+}
+
+.copyright {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 3px solid rgba(250, 140, 76, 0.1);
+  border-top-color: var(--accent-orange);
+  border-radius: 50%;
+  margin: 0 auto;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (max-width: 768px) {
+  .articleCard {
+    padding: 1.5rem;
+  }
+}
