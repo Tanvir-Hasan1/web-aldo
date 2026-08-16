@@ -20,7 +20,7 @@ export default function TermsAndConditions() {
   useEffect(() => {
     async function fetchTerms() {
       try {
-        const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://ristoai.onrender.com";
+        const baseUrl = process.env.NEXT_PUBLIC_API_URL || "https://api.risto-ai.com";
         const res = await fetch(`${baseUrl}/api/v1/settings/terms-and-conditions`);
         if (res.ok) {
           const json = await res.json();
